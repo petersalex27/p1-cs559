@@ -26,16 +26,21 @@ window.onload = function() {
         let hInner = 400 + (4 * depthSlider.value);
         let xInner = -(2 * depthSlider.value);
         let yInner = -(2 * depthSlider.value);
-        for (var i = 0, colr = 0x59, colg = 0x6b, colb = 0xdf; i < wOut; ++i) {
+        let i = 0, colr = 0x59, colg = 0x6b, colb = 0xdf;
+        for (; i < 400 - wInner; ++i) {
             draw(xOut + Math.floor(i/2), yOut + Math.floor(i/2), wOut - i, hOut - i,
                  "#".concat(colr.toString(16).padStart(2, "0"),
                             colg.toString(16).padStart(2, "0"),
                             colb.toString(16).padStart(2, "0")));
             colr = (i % Math.ceil(400 / 0x59)) ? colr : colr - 1;
             colg = (i % Math.ceil(400 / 0x6b)) ? colg : colg - 1;
-            colb = (i % Math.ceil(400 / 0xdf)) ? colb : colb - 1;// = (0 === i % 5) ? colb - 3 : colb - 1;
+            colb = (i % Math.ceil(400 / 0xdf)) ? colb : colb - 1;
         }
-        draw(xInner, yInner, wInner, hInner, "#16223f");
+
+        col = "#".concat((colr + 0x20).toString(16).padStart(2, "0"),
+                         (colg + 0x20).toString(16).padStart(2, "0"),
+                         colb.toString(16).padStart(2, "0"));
+        draw(xInner, yInner, wInner, hInner, col);
 
 
         function draw(x, y, w, h, col) {
