@@ -5,8 +5,17 @@
     <title>Project One</title>
 </head>
 <body>
-    <canvas id="myCanvas" width=400 height=400></canvas>
-    <script src="p1.js"></script>
-    <label for="depth"></label><input id="depth" type="range" min=-100 max=0>
+    <div id="depthThing">
+        <canvas id="myCanvas" width=400 height=400></canvas>
+        <script src="p1.js"></script>
+        <label for="depth"></label><input id="depth" type="range" min=-100 max=0>
+        <label for="spin"></label><input id="spin" type="range" min=0 max=360>
+    </div>
+    <div id="waveThing">
+        <canvas id="myCanvas2" width=400 height=400></canvas>
+        <script src="p1.js"></script>
+        <label for="amp"></label><input id="amp" type="range" min=0 max=100>
+        <label for="period"></label><input id="period" type="range" min=0 max=100>
+    </div>
 </body>
 </html>
